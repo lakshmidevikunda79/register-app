@@ -121,7 +121,8 @@ $ sudo vim /etc/systemd/system/sonar.service
 Refer--https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 $ sudo su
 $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-$ apt install unzip,   $ unzip awscliv2.zip
+$ apt install unzip
+$ unzip awscliv2.zip
 $ sudo ./aws/install
          OR
 $ sudo yum remove -y aws-cli
@@ -133,7 +134,8 @@ $ aws --version
 Refer--https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 $ sudo su
 $ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.27.1/2023-04-19/bin/linux/amd64/kubectl
-$ ll , $ chmod +x ./kubectl  //Gave executable permisions
+$ ll  
+$ chmod +x ./kubectl  //Gave executable permisions
 $ mv kubectl /bin   //Because all our executable files are in /bin
 $ kubectl version --output=yaml
 
@@ -147,7 +149,7 @@ $ eksctl version
 
 ## Setup Kubernetes using eksctl
 Refer--https://github.com/aws-samples/eks-workshop/issues/734
-$ eksctl create cluster --name virtualtechbox-cluster \
+$ eksctl create cluster --name mohantechbox-cluster \    \\make sure while giving the cluster name it should be unique\\
 --region ap-south-1 \
 --node-type t2.small \
 --nodes 3 \
@@ -176,7 +178,7 @@ $ kubectl get nodes
 
 7 ) Get pasword and decode it.
     $ kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
-    $ echo WXVpLUg2LWxoWjRkSHFmSA== | base64 --decode
+    $ echo WXVpLUg2LWxoWjRkSHFmSA== | base64 --decode  \\make sure when you enter password\\
 
 ## Add EKS Cluster to ArgoCD
 9 ) login to ArgoCD from CLI
